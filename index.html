@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(0, 221, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container{
+            background-color: white;
+            text-align: center;
+            padding: 50px;
+            border-radius: 5px;
+        }
+        .error{
+            color: red;
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+            font-weight: lighter;
+            text-align: left;
+            margin-bottom: 5px;
+            margin-top: 0;
+            
+        } 
+        input{
+            width: 200px;
+            margin: 10px 0 ;
+            padding: 10px;
+        }
+        #submit{
+            background-color: rgb(0, 221, 255);
+            color: white;
+            border: 0;
+            height: 30px;
+            width: 200px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login Form<h1></h1>
+        <form action="" onsubmit="return formValidate()">
+        <input type="text" placeholder="Username" id="name"><br>
+        <p class="error" id="usr"></p>
+        <input type="password" placeholder="password" id="password"><br>
+        <p class="error" id="pswd"></p>
+        <input type="submit" id="submit">
+    </form>
+    </div>
+    <script>
+        let name = document.getElementById('name');
+        let pswd = document.getElementById('password');
+        let flag = 1;
+        function formValidate(){
+            if(name.value == ""){
+            document.getElementById('usr').innerHTML = 'Username cannot be empty';
+            flag = 0;
+            }else if(name.value.length < 3){
+                document.getElementById('usr').innerHTML = 'Username is too short';
+            flag = 0;
+            }else{
+            document.getElementById('usr').innerHTML = '';
+            flag = 1;
+            }if(pswd.value==''){
+                document.getElementById('pswd').innerHTML = 'Password cannot be empty';
+            flag = 0;
+            }else if(pswd.value.length <5){
+                document.getElementById('pswd').innerHTML = 'Password is too short';
+            flag = 0;
+            }
+             else{
+                document.getElementById('pswd').innerHTML = '';
+             flag = 1;
+            }
+             if(flag){
+                return true;
+             }
+             else{
+return false;
+             }
+            
+        }
+    </script>
+</body>
+</html>
